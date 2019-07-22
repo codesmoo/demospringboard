@@ -1,10 +1,14 @@
 package me.codesmoo.demospringboard.web;
 
-import me.codesmoo.demospringboard.domain.posts.PostsRepository;
-import me.codesmoo.demospringboard.domain.posts.PostsSaveRequestDTO;
+import lombok.AllArgsConstructor;
+import me.codesmoo.demospringboard.dto.posts.PostsMainResponseDTO;
+import me.codesmoo.demospringboard.dto.posts.PostsSaveRequestDTO;
 import me.codesmoo.demospringboard.service.PostsService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * handlebars 이용해서 return값 viewResolver로 보내기 위해서는
@@ -13,16 +17,14 @@ import org.springframework.web.bind.annotation.*;
  */
 
 @Controller
+@AllArgsConstructor
 public class WebRestController {
 
     private PostsService postsService;
 
-    public WebRestController(PostsService postsService) {
-        this.postsService = postsService;
-    }
-
     @GetMapping("/")
-    public String main() {
+    public String main(Model model) {
+        model.addAttribute("posts", postsService.findAllDesc());
         return "main";
     }
 

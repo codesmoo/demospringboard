@@ -2,7 +2,7 @@ package me.codesmoo.demospringboard.service;
 
 import me.codesmoo.demospringboard.domain.posts.Posts;
 import me.codesmoo.demospringboard.domain.posts.PostsRepository;
-import me.codesmoo.demospringboard.domain.posts.PostsSaveRequestDTO;
+import me.codesmoo.demospringboard.dto.posts.PostsSaveRequestDTO;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;

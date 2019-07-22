@@ -1,4 +1,4 @@
-package me.codesmoo.demospringboard.domain.posts;
+package me.codesmoo.demospringboard.dto.posts;
 
 import lombok.Builder;
 import lombok.Getter;
