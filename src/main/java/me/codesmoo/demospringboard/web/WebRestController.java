@@ -17,7 +17,7 @@ public class WebRestController {
 
     private PostsService postsService;
 
-    public WebRestController(PostsRepository postsRepository) {
+    public WebRestController(PostsService postsService) {
         this.postsService = postsService;
     }
 
@@ -32,8 +32,9 @@ public class WebRestController {
     }
 
     @PostMapping("/posts")
-    public void savePosts(@RequestBody PostsSaveRequestDTO dto) {
+    public String savePosts(@RequestBody PostsSaveRequestDTO dto) {
         postsService.save(dto);
+        return "main";
     }
 
 }
