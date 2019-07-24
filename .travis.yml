@@ -46,3 +46,4 @@ deploy:
       on:
         repo: codesmoo/demospringboard #Github 주소
         branch: master
+        
