@@ -49,7 +49,7 @@ public class PostsServiceTest {
         logger.info(save.toString());
 
         //then
-        Posts posts = postsRepository.findAll().get(2);
+        Posts posts = postsRepository.findAll().get(0);
         assertThat(posts.getTitle()).isEqualTo("제목입니다");
         assertThat(posts.getContent()).isEqualTo("내용이구요");
         assertThat(posts.getAuthor()).isEqualTo("codesmoo");
