@@ -55,6 +55,13 @@
             <artifactId>handlebars-spring-boot-starter</artifactId>
             <version>0.3.0</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client -->
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
