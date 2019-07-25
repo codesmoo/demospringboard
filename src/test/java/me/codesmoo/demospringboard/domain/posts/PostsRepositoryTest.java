@@ -47,7 +47,7 @@ public class PostsRepositoryTest {
         }
 
         //then
-        Posts posts = postList.get(0);
+        Posts posts = postList.get(2);
         assertThat(posts.getAuthor()).isEqualTo("송성학");
     }
 }
