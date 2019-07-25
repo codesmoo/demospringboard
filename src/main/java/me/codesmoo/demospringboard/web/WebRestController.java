@@ -4,10 +4,12 @@ import lombok.AllArgsConstructor;
 import me.codesmoo.demospringboard.dto.posts.PostsMainResponseDTO;
 import me.codesmoo.demospringboard.dto.posts.PostsSaveRequestDTO;
 import me.codesmoo.demospringboard.service.PostsService;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -16,16 +18,15 @@ import java.util.List;
  * @RestController 말고 @Controller 이용
  */
 
-@Controller
+@RestController
 @AllArgsConstructor
 public class WebRestController {
 
-    private PostsService postsService;
+    private Environment environment;
 
-    @GetMapping("/")
-    public String main(Model model) {
-        model.addAttribute("posts", postsService.findAllDesc());
-        return "main";
+    @GetMapping("/profile")
+    public String getProfile() {
+        return Arrays.stream(environment.getActiveProfiles()).findFirst().orElse("");
     }
 
     @GetMapping("/hello")
@@ -33,10 +34,5 @@ public class WebRestController {
         return "hello";
     }
 
-    @PostMapping("/posts")
-    public String savePosts(@RequestBody PostsSaveRequestDTO dto) {
-        postsService.save(dto);
-        return "main";
-    }
 
 }
